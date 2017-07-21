@@ -1,35 +1,34 @@
-const htmlwebpackplugin=require('html-webpack-plugin')
-module.exports={
-    entry:__dirname+'/src/main.js',
-    output:{
-        path:__dirname+'/dist',
-        filename:'bundle.js'
+const htmlwebpackplugin = require('html-webpack-plugin')
+module.exports = {
+    entry: __dirname + '/src/main.js',
+    output: {
+        path: __dirname + '/dist',
+        filename: 'bundle.js'
     },
-    module:{
-        rules:[
-            {
-                test:/\.vue$/,
-                use:'vue-loader'
+    module: {
+        rules: [{
+                test: /\.vue$/,
+                use: 'vue-loader'
             },
             {
-                test:/\.css$/,
-                use:['style-loader','css-loader']
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
             },
             {
-                test:/\.(jpg|jpeg|png|ttf)$/,
-                use:'url-loader'
+                test: /\.(jpg|jpeg|png|ttf)$/,
+                use: 'url-loader'
             },
             {
-                test:/\.js/,
-                use:'babel-loader',
-                exclude:/node_modules/
+                test: /\.js$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
             }
         ]
     },
-    plugins:[
+    plugins: [
         new htmlwebpackplugin({
-            template:'./src/index.html',
-            filename:'index.html'
+            template: './src/index.html',
+            filename: 'index.html'
         })
     ]
 }
