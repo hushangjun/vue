@@ -7,17 +7,20 @@
                 <img :src="imgData.img" alt="">
             </mt-swipe-item>
         </mt-swipe> 
+       
         <!--九宫格的设置-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/news">
                 <span class="mui-icon mui-icon-home"></span>
-                <div class="mui-media-body">Home</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-                <span class="mui-icon mui-icon-email"><span class="mui-badge">5</span></span>
-                <div class="mui-media-body">Email</div></a></li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                <div class="mui-media-body">新闻</div></router-link></li>
+           <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/photolist">
+                <span class="mui-icon mui-icon-email">
+                    <!--<span class="mui-badge">5</span>-->
+                </span>
+                <div class="mui-media-body">图片</div></router-link></li>
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/goods">
                 <span class="mui-icon mui-icon-chatbubble"></span>
-                <div class="mui-media-body">Chat</div></a></li>
+                <div class="mui-media-body">商品</div></router-link></li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                 <span class="mui-icon mui-icon-location"></span>
                 <div class="mui-media-body">location</div></a></li>
@@ -54,7 +57,6 @@
             let url='http://182.254.146.100:8899/api/getlunbo';
             this.$http.get(url)
                 .then((data)=>{
-                    console.log(data);
                     this.swipeItemList = data.body
                 })
         },
